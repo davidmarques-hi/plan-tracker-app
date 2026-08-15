@@ -1,0 +1,22 @@
+[
+  { "ponto": "Courmayeur - PARTIDA", "km": 0, "dPlusAcum": 0, "adistancia": 0, "secDPlusMinus": 0, "segmento": "0:00:00", "pace": "0", "decorrido": "0:00:00", "relogio": "09:00", "especial": false },
+  { "ponto": "Tete de la Tronche", "km": 9.4, "dPlusAcum": 1400, "adistancia": 9.4, "secDPlusMinus": 1400, "segmento": "1:40:00", "pace": "0:10:38", "decorrido": "1:40:00", "relogio": "10:35", "especial": true },
+  { "ponto": "Refuge Bertone (liquidos)", "km": 13.7, "dPlusAcum": 1430, "adistancia": 4.3, "secDPlusMinus": 30, "segmento": "0:23:00", "pace": "0:05:21", "decorrido": "2:03:00", "relogio": "10:58", "especial": false },
+  { "ponto": "Refuge Bonatti", "km": 21.2, "dPlusAcum": 1810, "adistancia": 7.5, "secDPlusMinus": 380, "segmento": "0:55:00", "pace": "0:07:20", "decorrido": "2:58:00", "relogio": "11:53", "especial": false },
+  { "ponto": "Arnouvaz (abastecimento)", "km": 26.5, "dPlusAcum": 1870, "adistancia": 5.3, "secDPlusMinus": 60, "segmento": "0:29:00", "pace": "0:05:28", "decorrido": "3:27:00", "relogio": "12:22", "especial": true },
+  { "ponto": "Refuge Elena", "km": 28.7, "dPlusAcum": 1970, "adistancia": 2.2, "secDPlusMinus": 100, "segmento": "0:23:00", "pace": "0:10:27", "decorrido": "3:50:00", "relogio": "12:45", "especial": true },
+  { "ponto": "Grand Col Ferret", "km": 31, "dPlusAcum": 2537, "adistancia": 2.3, "secDPlusMinus": 567, "segmento": "0:34:00", "pace": "0:14:47", "decorrido": "4:24:00", "relogio": "13:19", "especial": true },
+  { "ponto": "La Peule", "km": 34.6, "dPlusAcum": 2537, "adistancia": 3.6, "secDPlusMinus": -480, "segmento": "0:21:00", "pace": "0:05:50", "decorrido": "4:45:00", "relogio": "13:40", "especial": false },
+  { "ponto": "La Fouly (abastecimento)", "km": 40.9, "dPlusAcum": 2560, "adistancia": 6.3, "secDPlusMinus": -380, "segmento": "0:40:00", "pace": "0:06:21", "decorrido": "5:25:00", "relogio": "14:20", "especial": true },
+  { "ponto": "Praz de Fort", "km": 49.3, "dPlusAcum": 2612, "adistancia": 8.4, "secDPlusMinus": -330, "segmento": "0:47:00", "pace": "0:05:36", "decorrido": "6:12:00", "relogio": "15:07", "especial": false },
+  { "ponto": "CHAMPEX-LAC - CREW", "km": 55.2, "dPlusAcum": 3100, "adistancia": 5.9, "secDPlusMinus": 488, "segmento": "0:48:00", "pace": "0:08:08", "decorrido": "7:00:00", "relogio": "15:55", "especial": true },
+  { "ponto": "Plan de l'Au", "km": 60, "dPlusAcum": 3160, "adistancia": 4.8, "secDPlusMinus": 60, "segmento": "0:36:00", "pace": "0:07:30", "decorrido": "7:36:00", "relogio": "16:31", "especial": false },
+  { "ponto": "La Giete (Bovine)", "km": 66.7, "dPlusAcum": 3960, "adistancia": 6.7, "secDPlusMinus": 800, "segmento": "1:14:00", "pace": "0:11:03", "decorrido": "8:50:00", "relogio": "17:45", "especial": true },
+  { "ponto": "Trient (abastecimento)", "km": 71.8, "dPlusAcum": 4020, "adistancia": 5.1, "secDPlusMinus": -660, "segmento": "0:37:00", "pace": "0:07:15", "decorrido": "9:27:00", "relogio": "18:22", "especial": true },
+  { "ponto": "Les Tseppes (Catogne)", "km": 75.6, "dPlusAcum": 4660, "adistancia": 3.8, "secDPlusMinus": 640, "segmento": "0:59:00", "pace": "0:15:32", "decorrido": "10:26:00", "relogio": "19:21", "especial": true },
+  { "ponto": "VALLORCINE - CREW", "km": 83.7, "dPlusAcum": 4820, "adistancia": 8.1, "secDPlusMinus": -640, "segmento": "1:04:00", "pace": "0:07:54", "decorrido": "11:30:00", "relogio": "20:25", "especial": true },
+  { "ponto": "Col des Montets", "km": 87.6, "dPlusAcum": 4870, "adistancia": 3.9, "secDPlusMinus": 50, "segmento": "0:30:00", "pace": "0:07:42", "decorrido": "12:00:00", "relogio": "20:55", "especial": false },
+  { "ponto": "Tete de Bechar", "km": 90, "dPlusAcum": 5250, "adistancia": 2.4, "secDPlusMinus": 380, "segmento": "0:38:00", "pace": "0:15:50", "decorrido": "12:38:00", "relogio": "21:33", "especial": true },
+  { "ponto": "La Flegere (abastecimento)", "km": 95.1, "dPlusAcum": 5980, "adistancia": 5.1, "secDPlusMinus": 730, "segmento": "1:02:00", "pace": "0:12:09", "decorrido": "13:40:00", "relogio": "22:35", "especial": true },
+  { "ponto": "CHAMONIX - META", "km": 102.2, "dPlusAcum": 6050, "adistancia": 7.1, "secDPlusMinus": -820, "segmento": "1:00:00", "pace": "0:08:27", "decorrido": "14:40:00", "relogio": "23:35", "especial": true }
+]
