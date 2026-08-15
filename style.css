@@ -152,12 +152,37 @@ body {
   gap: 5px;
 }
 
-.card__ponto {
-  font-size: 19px;
+.card__km {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.card__km-value {
+  font-size: 48px;
   font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+}
+
+.card__km-unit {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.card__ponto {
+  font-size: 14px;
+  font-weight: 600;
   line-height: 1.2;
   margin: 0 0 16px;
-  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--text-muted);
 }
 
 .card__hero {

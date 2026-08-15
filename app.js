@@ -8,6 +8,15 @@ function formatSec(value) {
   return `${sign}${value} m`;
 }
 
+function formatHours(value) {
+  const parts = value.split(":");
+  return `${parts[0]}:${parts[1]}h`;
+}
+
+function formatKm(value) {
+  return value.toFixed(1);
+}
+
 function badgeLabel(nome) {
   const lower = nome.toLowerCase();
   if (lower.includes("crew")) return "👥 crew";
@@ -27,19 +36,23 @@ function buildCard(p, i, total) {
       <span class="card__index">${i + 1} / ${total}</span>
       <span class="card__badge">${p.especial ? badgeLabel(p.ponto) : ""}</span>
     </div>
+    <div class="card__km">
+      <span class="card__km-value">${formatKm(p.km)}</span>
+      <span class="card__km-unit">KM</span>
+    </div>
     <h2 class="card__ponto">${p.ponto}</h2>
     <div class="card__hero">
       <div class="hero-stat">
-        <span class="hero-stat__value">${p.km}</span>
-        <span class="hero-stat__label">KM</span>
+        <span class="hero-stat__value">${formatHours(p.decorrido)}</span>
+        <span class="hero-stat__label">Objetivo</span>
       </div>
       <div class="hero-stat">
-        <span class="hero-stat__value">${p.dPlusAcum}</span>
-        <span class="hero-stat__label">D+ Acum</span>
+        <span class="hero-stat__value">${formatHours(p.segmento)}</span>
+        <span class="hero-stat__label">Segmento</span>
       </div>
       <div class="hero-stat">
-        <span class="hero-stat__value">${p.relogio}</span>
-        <span class="hero-stat__label">Relógio</span>
+        <span class="hero-stat__value">${p.pace}</span>
+        <span class="hero-stat__label">Pace</span>
       </div>
     </div>
     <div class="card__grid">
@@ -52,16 +65,16 @@ function buildCard(p, i, total) {
         <span class="grid-stat__value">${formatSec(p.secDPlusMinus)}</span>
       </div>
       <div class="grid-stat">
-        <span class="grid-stat__label">Segmento</span>
-        <span class="grid-stat__value">${p.segmento}</span>
+        <span class="grid-stat__label">D+ Acum</span>
+        <span class="grid-stat__value">${p.dPlusAcum}</span>
       </div>
       <div class="grid-stat">
         <span class="grid-stat__label">Pace</span>
         <span class="grid-stat__value">${p.pace}</span>
       </div>
       <div class="grid-stat grid-stat--wide">
-        <span class="grid-stat__label">Decorrido</span>
-        <span class="grid-stat__value">${p.decorrido}</span>
+        <span class="grid-stat__label">Relógio</span>
+        <span class="grid-stat__value">${p.relogio}h</span>
       </div>
     </div>
   `;
