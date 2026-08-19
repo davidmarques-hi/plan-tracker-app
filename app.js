@@ -26,6 +26,111 @@ function badgeLabel(nome) {
   return "⭐ ponto especial";
 }
 
+// Silhueta ilustrativa da altimetria (não são dados reais) — pares [posição 0-1 no percurso, altura 0-1].
+// Desenhada à mão para imitar a forma do perfil real: subida alta inicial, vale a meio, série de picos até ao fim.
+const ELEVATION_SILHOUETTE = [
+  [0.00, 0.02],
+  [0.05, 0.55],
+  [0.09, 0.95],
+  [0.12, 0.78],
+  [0.16, 0.68],
+  [0.20, 0.74],
+  [0.24, 0.65],
+  [0.28, 0.80],
+  [0.30, 1.00],
+  [0.33, 0.60],
+  [0.38, 0.22],
+  [0.42, 0.06],
+  [0.46, 0.05],
+  [0.50, 0.28],
+  [0.54, 0.40],
+  [0.57, 0.30],
+  [0.60, 0.55],
+  [0.63, 0.42],
+  [0.66, 0.63],
+  [0.69, 0.30],
+  [0.72, 0.10],
+  [0.76, 0.45],
+  [0.79, 0.60],
+  [0.82, 0.30],
+  [0.85, 0.15],
+  [0.88, 0.35],
+  [0.91, 0.28],
+  [0.94, 0.50],
+  [0.97, 0.62],
+  [1.00, 0.05],
+];
+
+function silhouetteHeightAt(t) {
+  const pts = ELEVATION_SILHOUETTE;
+  if (t <= pts[0][0]) return pts[0][1];
+  if (t >= pts[pts.length - 1][0]) return pts[pts.length - 1][1];
+  for (let i = 0; i < pts.length - 1; i++) {
+    const [t0, h0] = pts[i];
+    const [t1, h1] = pts[i + 1];
+    if (t >= t0 && t <= t1) {
+      const ratio = (t - t0) / (t1 - t0 || 1);
+      return h0 + (h1 - h0) * ratio;
+    }
+  }
+  return 0;
+}
+
+function buildElevationProfile(points) {
+  const width = 560;
+  const height = 260;
+  const padX = 14;
+  const padTop = 26;
+  const padBottom = 16;
+
+  const plotWidth = width - padX * 2;
+  const plotHeight = height - padTop - padBottom;
+
+  const minKm = points[0].km;
+  const maxKm = points[points.length - 1].km;
+  const kmRange = maxKm - minKm || 1;
+
+  const xAt = (km) => padX + ((km - minKm) / kmRange) * plotWidth;
+  const yAt = (h) => padTop + plotHeight - h * plotHeight;
+
+  const silhouetteCoords = ELEVATION_SILHOUETTE.map(([t, h]) => [
+    padX + t * plotWidth,
+    yAt(h),
+  ]);
+
+  const linePath = silhouetteCoords
+    .map(([x, y], i) => `${i === 0 ? "M" : "L"}${x.toFixed(1)},${y.toFixed(1)}`)
+    .join(" ");
+  const baseline = padTop + plotHeight;
+  const lastX = silhouetteCoords[silhouetteCoords.length - 1][0];
+  const firstX = silhouetteCoords[0][0];
+  const areaPath = `${linePath} L${lastX.toFixed(1)},${baseline} L${firstX.toFixed(1)},${baseline} Z`;
+
+  const markers = points
+    .map((p, i) => {
+      const t = (p.km - minKm) / kmRange;
+      const x = xAt(p.km);
+      const y = yAt(silhouetteHeightAt(t));
+      return `
+        <circle class="elevation-profile__dot" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="11"></circle>
+        <text class="elevation-profile__num" x="${x.toFixed(1)}" y="${y.toFixed(1)}" dominant-baseline="central" text-anchor="middle">${i + 1}</text>
+      `;
+    })
+    .join("");
+
+  const section = document.createElement("section");
+  section.className = "elevation-profile";
+  section.innerHTML = `
+    <svg class="elevation-profile__svg" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none" role="img" aria-label="Perfil de altimetria do percurso">
+      <path class="elevation-profile__area" d="${areaPath}"></path>
+      <path class="elevation-profile__line" d="${linePath}"></path>
+      ${markers}
+    </svg>
+  `;
+
+  return section;
+}
+
 function buildCard(p, i, total) {
   const card = document.createElement("section");
   card.className = "card" + (p.especial ? " card--especial" : "");
@@ -141,6 +246,8 @@ async function init() {
     showError();
     return;
   }
+
+  listEl.appendChild(buildElevationProfile(points));
 
   const fragment = document.createDocumentFragment();
   const cards = points.map((p, i) => {
